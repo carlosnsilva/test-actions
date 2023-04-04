@@ -22,4 +22,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 ${{ github.actor }}"
-      - run: echo "🐧 DEU CERTO A CRIAÇÃO DO SEGUNDO JOB!!!"    
+      - run: echo "🐧 DEU CERTO A CRIAÇÃO DO SEGUNDO JOB!!!"
+  Horusec-Security:
+    needs: Create-Second-Job
+    name: horusec-security
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with: # Necessário quando habilitado o autores de commit
+        fetch-depth: 0
+    - name: Running Horusec Security
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+        horusec start -p="./" -e="true"        
