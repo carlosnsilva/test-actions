@@ -1,8 +1,9 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
-Create-Second-Job:    
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo "🎉 ${{ github.actor }}"
-    - run: echo "🐧 DEU CERTO A CRIAÇÃO DO SEGUNDO JOB!!!"
+jobs:
+  Create-Second-Job:    
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 ${{ github.actor }}"
+      - run: echo "🐧 DEU CERTO A CRIAÇÃO DO SEGUNDO JOB!!!"
