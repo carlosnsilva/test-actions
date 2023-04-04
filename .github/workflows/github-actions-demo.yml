@@ -17,7 +17,6 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "DEU CERTO!!!"
-
   Create-Second-Job:    
   runs-on: ubuntu-latest
     steps:
